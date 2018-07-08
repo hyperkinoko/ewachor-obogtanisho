@@ -1,19 +1,20 @@
 {
-  "database": {
-    "rules": "database.rules.json"
-  },
-  "hosting": {
-    "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
+  "2018": {
+    "users": {
+      "hyperkinoko": {
+        "name": "松本キノコ",
+        "part": "アルト",
+        "question001": "水底吹笛",
+        "question002": "豚麺",
+        "comments": {
+          "hyperkinoko":"いつもかわいいね",
+          "yoshikyo": "きのこさんです"
+        }
       }
-    ]
+    },
+    "questions": {
+      "question001": "好きな歌",
+      "question002": "好きなお店"
+    }
   }
 }

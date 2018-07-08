@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.2.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.2.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB5KsBXkkcrIvmkXM1hECP7IEowcLkvKXw",
+            authDomain: "ewachor-obogtanisho.firebaseapp.com",
+            databaseURL: "https://ewachor-obogtanisho.firebaseio.com",
+            projectId: "ewachor-obogtanisho",
+            storageBucket: "ewachor-obogtanisho.appspot.com",
+            messagingSenderId: "911805122814"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <!--<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />-->
+  </head>
+  <body>
+  <div id="main">
+    <h1>他人紹介号</h1>
+    <div id="self">
+      <div id="name">
+        <div class="label"></div>
+        <div class="content"></div>
+      </div>
+      <div id="part">
+        <div class="label"></div>
+        <div class="content"></div>
+      </div>
+      <div id="question1">
+        <div class="label"></div>
+        <div class="content"></div>
+      </div>
+      <div id="question2">
+        <div class="label"></div>
+        <div class="content"></div>
+      </div>
+    </div>
+    <div id="comments">
+      <div class="comment">
+        <div class="comment_from"></div>
+        <div class="comment_content"></div>
+      </div>
+      <div class="comment">
+        <div class="comment_from"></div>
+        <div class="comment_content"></div>
+      </div>
+      <div class="comment">
+        <div class="comment_from"></div>
+        <div class="comment_content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      var db = firebase.database();
+      var ref = db.ref("/2018");
+
+      ref.on("value", function(snapshot) {
+          document.getElementById("name").innerText = snapshot.val().users.hyperkinoko.name;
+          document.getElementById("part").innerText = snapshot.val().users.hyperkinoko.part;
+          document.getElementById("question1").innerText = snapshot.val().users.hyperkinoko.question001;
+          document.getElementById("question2").innerText = snapshot.val().users.hyperkinoko.question002;
+          document.getElementById("comment_content").innerText = snapshot.val().users.hyperkinoko.comments.hyperkinoko;
+      });
+  </script>
+  </body>
+</html>
